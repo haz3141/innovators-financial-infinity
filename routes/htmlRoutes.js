@@ -1,5 +1,4 @@
 var db = require("../models");
-var authController = require("../controllers/authController.js");
 
 module.exports = function(app, passport) {
   // Load index page
