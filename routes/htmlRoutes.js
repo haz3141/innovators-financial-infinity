@@ -1,8 +1,7 @@
 var db = require("../models");
-var authController = require("../controllers/authcontroller.js");
+var authController = require("../controllers/authController.js");
 
-
-module.exports = function(app) {
+module.exports = function(app, passport) {
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
@@ -16,8 +15,6 @@ module.exports = function(app) {
   app.get("/landing", function(req, res) {
     res.render("landing");
   });
-
-  app.get("/signup", authController.signup);
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
