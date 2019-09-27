@@ -2,19 +2,24 @@ var db = require("../models");
 
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app, passport) {
-  // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
 
   app.get("/landing", function(req, res) {
     res.render("landing");
   });
+
+  
+  app.get("/signin", function(req, res) {
+    res.render("signin");
+  });
+
+  app.get("/signup", function(req, res) {
+    res.render("signup");
+  });
+
+  app.get("/dashboard", function(req, res) {
+    res.render("dashboard");
+  });
+
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
