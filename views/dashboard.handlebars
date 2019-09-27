@@ -1,6 +1,102 @@
 <head>
     <title>Passport with Sequelize</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+    {{!-- <ul class="nav justify-content-center">
+        <h1>Dashboard</h1>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+
 </head>
 
-<h2>Dashboard</h2>
-    <h5>Hurray! you are logged in.</h5>
+<body>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h2>Welcome {{USER}}!</h2>
+                <h1 class="display-4">Fluid jumbotron</h1>
+                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
+                </p>
+            </div>
+        </div>
+    </div>
+</body> --}}
+
+<nav class="navbar navbar-default">
+
+  <div class="navbar-header">
+
+    <a class="navbar-brand" href="#">Innovation Financial Infinite</a>
+
+  </div>
+
+  <ul class="nav navbar-nav">
+
+    <li class="active"><a href="#">Admin</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Docs</a></li>
+    <li><a href="#">Blog</a></li>
+
+  </ul>
+
+</nav>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-xs-2">
+
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <a href="#">Dashboard</a>
+        </div>
+
+        <div class="panel-body">
+          <a href="#">Messages</a>
+        </div>
+
+        <div class="panel-body">
+          <a href="#">Widgets</a>
+        </div>
+
+        <div class="panel-body">
+          <a href="#">Analytics</a>
+        </div>
+
+        <div class="panel-body">
+          <a href="#">Forms</a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-xs-6">
+
+      <div id='myChart'></div>
+
+    </div>
+
+    <div class="col-xs-4">
+
+      <div id='myChart1'></div>
+
+    </div>
+
+  </div>
+
+</div>
