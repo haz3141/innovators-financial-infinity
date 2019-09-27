@@ -1,6 +1,6 @@
 const authController = require("../controllers/authController");
 
-module.exports = function(app, passport) {
+module.exports = function (app, passport) {
   app.get("/signup", authController.signup);
 
   app.get("/signin", authController.signin);
@@ -8,22 +8,23 @@ module.exports = function(app, passport) {
   app.post(
     "/signup",
     passport.authenticate("local-signup", {
-      successRedirect : "/dashboard",
+      successRedirect: "/dashboard",
 
-      failureRedirect : "/signup"
+      failureRedirect: "/signup"
     })
   );
 
   app.get("/dashboard", isLoggedIn, authController.dashboard);
+  app.get("/trade", isLoggedIn, authController.trade);
 
   app.get("/logout", authController.logout);
 
   app.post(
     "/signin",
     passport.authenticate("local-signin", {
-      successRedirect : "/dashboard",
+      successRedirect: "/dashboard",
 
-      failureRedirect : "/signin"
+      failureRedirect: "/signin"
     })
   );
 

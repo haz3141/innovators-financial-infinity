@@ -35,7 +35,7 @@ require("./routes/auth")(app, passport);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 var models = require("./models");
-require("./config/passport/passport")(passport, models.user);
+require("./config/passport/passport")(passport, models.User);
 
 var syncOptions = { force: false };
 
