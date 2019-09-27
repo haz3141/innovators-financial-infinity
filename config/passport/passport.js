@@ -26,11 +26,11 @@ module.exports = function(passport, user) {
     "local-signup",
     new LocalStrategy(
       {
-        usernameField     : "email",
+        usernameField: "email",
 
-        passwordField     : "password",
+        passwordField: "password",
 
-        passReqToCallback : true // allows us to pass back the entire request to the callback
+        passReqToCallback: true // allows us to pass back the entire request to the callback
       },
       function(req, email, password, done) {
         var generateHash = function(password) {
@@ -38,27 +38,28 @@ module.exports = function(passport, user) {
         };
 
         User.findOne({
-          where : {
-            email : email
+          where: {
+            email: email
           }
         }).then(function(user) {
           if (user) {
             return done(null, false, {
-              message : "That email is already taken"
+              message: "That email is already taken"
             });
           } else {
             var userPassword = generateHash(password);
 
             var data = {
-              email     : email,
+              email: email,
 
-              password  : userPassword,
+              password: userPassword,
 
-              firstname : req.body.firstname,
+              firstname: req.body.firstname,
 
-              lastname  : req.body.lastname
+              lastname: req.body.lastname
             };
 
+            // eslint-disable-next-line no-unused-vars
             User.create(data).then(function(newUser, created) {
               if (!newUser) {
                 return done(null, false);
@@ -81,11 +82,11 @@ module.exports = function(passport, user) {
       {
         // by default, local strategy uses username and password, we will override with email
 
-        usernameField     : "email",
+        usernameField: "email",
 
-        passwordField     : "password",
+        passwordField: "password",
 
-        passReqToCallback : true // allows us to pass back the entire request to the callback
+        passReqToCallback: true // allows us to pass back the entire request to the callback
       },
       function(req, email, password, done) {
         var User = user;
@@ -95,20 +96,20 @@ module.exports = function(passport, user) {
         };
 
         User.findOne({
-          where : {
-            email : email
+          where: {
+            email: email
           }
         })
           .then(function(user) {
             if (!user) {
               return done(null, false, {
-                message : "Email does not exist"
+                message: "Email does not exist"
               });
             }
 
             if (!isValidPassword(user.password, password)) {
               return done(null, false, {
-                message : "Incorrect password."
+                message: "Incorrect password."
               });
             }
 
@@ -119,7 +120,7 @@ module.exports = function(passport, user) {
             console.log("Error:", err);
 
             return done(null, false, {
-              message : "Something went wrong with your Signin"
+              message: "Something went wrong with your Signin"
             });
           });
       }
