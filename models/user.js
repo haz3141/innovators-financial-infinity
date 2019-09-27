@@ -1,49 +1,49 @@
-module.exports = function(sequelize, Sequelize) {
+module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     id         : {
       autoIncrement : true,
       primaryKey    : true,
-      type          : Sequelize.INTEGER
+      type          : DataTypes.INTEGER
 
     },
 
     firstname: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       notEmpty: true
     },
 
     lastname: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       notEmpty: true
     },
 
     username: {
-      type: Sequelize.TEXT
+      type: DataTypes.TEXT
     },
 
     about: {
-      type: Sequelize.TEXT
+      type: DataTypes.TEXT
     },
 
     email: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       validate: {
         isEmail: true
       }
     },
 
     password: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
 
     // eslint-disable-next-line camelcase
     last_login: {
-      type: Sequelize.DATE
+      type: DataTypes.DATE
     },
 
     status: {
-      type: Sequelize.ENUM("active", "inactive"),
+      type: DataTypes.ENUM("active", "inactive"),
       defaultValue: "active"
     }
   });

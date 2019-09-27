@@ -1,14 +1,6 @@
 * {
   box-sizing: border-box;
 }
-.navbar {
-  border-radius: 0;
-  background-color: #333;
-}
-
-.navbar a{
-  float: right;
-}
 
 body {
   margin: 0;
@@ -73,12 +65,18 @@ body {
   padding-bottom: 2rem;
 }
 
-.btn {
-  background: #34b3a0;
+.card {
+  background-color: black;
   color: #fff;
+}
+
+.btn {
+  background:rgb(197, 188, 58);
+  color: rgb(0, 0, 0);
   font-size: 1.2rem;
   padding: 1rem 2rem;
   text-decoration: none;
+  border: none;
 }
 
 .section {
