@@ -1,30 +1,11 @@
-
-<head>
-  <meta charset="utf-8">
-  <script src="https://kit.fontawesome.com/8e3c874e17.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="/styles/main.css" media="screen" title="Login Page" charset="utf-8">
-
-  <link rel="stylesheet" href="/styles/main-styling.css" media="screen" title="no title" charset="utf-8">
-
-  <title>Login Page</title>
-</head>
-{{!-- <form id="signin" name="signin" method="post" action="signin">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" type="submit" value="Sign In" />
-    </form> --}}
-
 <div class="row mt-5">
     <div class="col-md-6 m-auto">
       <div class="card card-body">
         <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>  Login</h1>
-        <form action="/users/login" method="POST">
+        <form action="signin" name="signin" method="POST" id="signin">
+          
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Email Address</label>
             <input
               type="email"
               id="email"
@@ -33,6 +14,7 @@
               placeholder="Enter Email"
             />
           </div>
+
           <div class="form-group">
             <label for="password">Password</label>
             <input
@@ -51,12 +33,3 @@
       </div>
     </div>
   </div>
-
-<form id="signin" name="signin" method="post" action="signin">
-  <label for="email">Email Address</label>
-  <input class="text" name="email" type="text" />
-  <label for="password">Password</label>
-  <input name="password" type="password" />
-  <input class="btn" type="submit" value="Sign In" />
-</form>
-
