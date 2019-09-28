@@ -1,48 +1,7 @@
-<head>
-  <meta charset="utf-8">
-  <script src="https://kit.fontawesome.com/8e3c874e17.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="Login Page" charset="utf-8">
-  <title>Login Page</title>
-</head>
-{{!-- <form id="signin" name="signin" method="post" action="signin">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" type="submit" value="Sign In" />
-    </form> --}}
-
-<div class="row mt-5">
-    <div class="col-md-6 m-auto">
-      <div class="card card-body">
-        <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>  Login</h1>
-        <form action="/users/login" method="POST">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-control"
-              placeholder="Enter Email"
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="form-control"
-              placeholder="Enter Password"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
-        </form>
-        <p class="lead mt-4">
-          No Account? <a href="/signup">Register</a>
-        </p>
-      </div>
-    </div>
-  </div>
+<form id="signin" name="signin" method="post" action="signin">
+  <label for="email">Email Address</label>
+  <input class="text" name="email" type="text" />
+  <label for="password">Password</label>
+  <input name="password" type="password" />
+  <input class="btn" type="submit" value="Sign In" />
+</form>
