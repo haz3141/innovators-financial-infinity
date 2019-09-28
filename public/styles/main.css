@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    overflow-x: hidden;
+  }
+
+.card {
+    background-color: black;
+    color: #fff;
+  }
+  
+  .btn {
+    background:rgb(197, 188, 58);
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border: none;
+  }
+
+  .container {
+    max-width: 960px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: auto;
+    text-align: center;
+  }
