@@ -15,7 +15,17 @@ module.exports = function(app) {
     });
   });
 
-  app.post('/api/charts')
+  app.post("/api/charts", function(req, res) {
+    db.Coin.create({
+      symbol: req.body.symbol,
+      name: req.body.name,
+      currentprice: req.body.currentprice,
+      volume: req.body.volume,
+      change: req.body.change
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
 
   // Create a new example
   app.post("/api/examples", function(req, res) {
