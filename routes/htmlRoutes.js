@@ -4,7 +4,7 @@ var db = require("../models");
 module.exports = function(app, passport) {
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
-      console.log(dbExamples);
+      // console.log(dbExamples);
       res.render("index", {
         msg: "Welcome!",
         examples: dbExamples
