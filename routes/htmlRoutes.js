@@ -2,13 +2,9 @@ var db = require("../models");
 
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app, passport) {
-<<<<<<< HEAD
-=======
   app.get("/", function(req, res) {
     res.render("index");
   });
-
->>>>>>> ac4bb1fb2d03be3c25ec3ecef1d05463b186eb94
   app.get("/landing", function(req, res) {
     res.render("landing");
   });

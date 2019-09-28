@@ -3,6 +3,10 @@
   }
   
   body {
+    background-image: url("https://miro.medium.com/max/2560/1*2cdqBbOJUdvqGVKxAi1JtA.png");
+    background-position: center;
+    background-size: cover;
+    height: 500px;
     margin: 0;
     font-size: 1rem;
     line-height: 1.5;

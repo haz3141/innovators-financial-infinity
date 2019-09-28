@@ -1,72 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/main.css" media="screen" title="Data Page" charset="utf-8">
 </head>
+
 <body>
-    <nav>
-    <div class="logo">
-      <h4>The nav</h4>
-    </div>
-    <div class="nav-a">
-      <ul>
-        <li>
-          <a href="/dashboard">Home</a>
-        </li>
-        <li>
-          <a href="/landing">About</a>
-        </li>
-        <li>
-          <a href="/charts">Charts</a>
-      </ul>
-    </div>
-  </nav>
+    {{!-- <nav>
+        <div class="logo">
+            <h4>The nav</h4>
+        </div>
+        <div class="nav-a">
+            <ul>
+                <li>
+                    <a href="/dashboard">Home</a>
+                </li>
+                <li>
+                    <a href="/landing">About</a>
+                </li>
+                <li>
+                    <a href="/charts">Charts</a>
+            </ul>
+        </div>
+    </nav> --}}
     <div id='coins'>
-        <h1 class='text-center bg-transparent text-white'>Crypto Prices</h1>
-        <table style='margin-bottom: 20px; border-top: silver 2px solid; border-bottom: silver 2px solid;' class="table table-secondary" id='coin-prices'>
-            <thead class='headers'>
-                <tr>
-                    <th scope="col">Symbol</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Current Price</th>
-                    <th scope="col">Volume</th>
-                    <th scope="col">Change(24Hr)</th>
-                </tr>
-            </thead>
-            <tbody id='prices'>
-            </tbody>
-        </table>
+        <div class="container">
+            <div class="currency">
+                <h1 class='text-center text-white'
+                    style="border-top: silver 2px solid; border-bottom: silver 2px solid;">Crypto Prices</h1>
+            </div>
+            <table style='margin-bottom: 20px; border-top: silver 2px solid; border-bottom: silver 2px solid;'
+                class="table table-secondary" id='coin-prices'>
+                <thead class='headers'>
+                    <tr>
+                        <th scope="col">Symbol</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Current Price</th>
+                        <th scope="col">Volume</th>
+                        <th scope="col">Change(24Hr)</th>
+                    </tr>
+                </thead>
+                <tbody id='prices'>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class='container'>
         <div class='row'>
             <div class='col-4'>
             </div>
             <div class='col-4 input'>
-                <form>
-                    <div class="form-group">
-                        <label style='margin-left: 50px; color: white; font-size: 20px;' for="crypto">Add Crypto:</label>
-                        <input type="text" class="form-control" id="custom" placeholder="Enter Crypto Name">
+                <div class="card" style="width: 18rem;">
+                    {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label style='margin-left: 50px; color: white; font-size: 20px;' for="crypto">Add
+                                    Crypto:</label>
+                                <input type="text" class="form-control" id="custom" placeholder="Enter Crypto Name">
+                            </div>
+                            <button type="submit" id='add' style='margin-left: 14px; margin-bottom: 20px;'
+                                class="btn btn-secondary">Add Crypto To Table</button>
+                        </form>
                     </div>
-                    <button type="submit" id='add' style='margin-left: 14px; margin-bottom: 20px;' class="btn btn-secondary">Add Crypto To Table</button>
-                </form>
+                </div>
             </div>
             <div class='col-4'>
             </div>
         </div>
-        <canvas id='bitcoin-chart' style='margin-bottom: 20px;'>
-        </canvas>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <canvas id='bitcoin-chart' style='margin-bottom: 20px;'>
+                </canvas>
+            </div>
+        </div>
+
     </div>
     <style>
+        .card{
+            width: 80%;
+        }
+
+        .currency {
+            background-color: silver;
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
         .crypto {
+            height: 100px;
             width: 40px;
             height: 40px;
+            color: black;
         }
 
         .headers {
@@ -83,9 +119,10 @@
             justify-content: center;
             align-content: space-between;
         }
-        body {
+
+        /*body {
             background-image: linear-gradient(to right, black, red, grey)
-        }
+        }*/
     </style>
     <script>
         //making initial charts//
@@ -94,7 +131,7 @@
             $.ajax({
                 url: queryURL,
                 method: 'GET'
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log(response)
                 var bitcoinPrice = response[0].current_price
                 var ethPrice = response[1].current_price
@@ -107,7 +144,7 @@
             })
         }
         //changing chart css
-        Chart.defaults.global.defaultFontColor = 'white'
+        Chart.defaults.global.defaultFontColor = 'black'
         Chart.defaults.global.title.fontSize = 20
 
         const ctx = document.getElementById('bitcoin-chart').getContext('2d');
@@ -127,36 +164,36 @@
                 labels: [],
                 datasets: [
                     {
-                    data: [],
-                    label: 'bitcoin',
-                    borderColor: gradientStroke,
-                    pointBorderColor: gradientStroke,
-                    pointBackgroundColor: gradientStroke,
-                    pointHoverBackgroundColor: gradientStroke,
-                    pointHoverBorderColor: gradientStroke,
-                    fill: true
+                        data: [],
+                        label: 'bitcoin',
+                        borderColor: gradientStroke,
+                        pointBorderColor: gradientStroke,
+                        pointBackgroundColor: gradientStroke,
+                        pointHoverBackgroundColor: gradientStroke,
+                        pointHoverBorderColor: gradientStroke,
+                        fill: true
                     },
                     {
-                    data: [],
-                    label: 'litecoin',
-                    borderColor: gradientStrokeTwo,
-                    pointBorderColor: gradientStrokeTwo,
-                    pointBackgroundColor: gradientStrokeTwo,
-                    pointHoverBackgroundColor: gradientStrokeTwo,
-                    pointHoverBorderColor: gradientStrokeTwo,
-                    fill: true
+                        data: [],
+                        label: 'litecoin',
+                        borderColor: gradientStrokeTwo,
+                        pointBorderColor: gradientStrokeTwo,
+                        pointBackgroundColor: gradientStrokeTwo,
+                        pointHoverBackgroundColor: gradientStrokeTwo,
+                        pointHoverBorderColor: gradientStrokeTwo,
+                        fill: true
                     },
                     {
-                    data: [],
-                    label: 'Ethereum',
-                    borderColor: 'blue',
-                    fill: true
+                        data: [],
+                        label: 'Ethereum',
+                        borderColor: 'blue',
+                        fill: true
                     },
                     {
-                    data: [],
-                    label: 'user',
-                    borderColor: 'black',
-                    fill: true
+                        data: [],
+                        label: 'user',
+                        borderColor: 'black',
+                        fill: true
                     }
                 ]
             },
@@ -201,7 +238,7 @@
             $.ajax({
                 url: queryURL,
                 method: 'GET'
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log(add)
                 console.log(response)
                 for (let i = 0; i < response.length; i++) {
@@ -218,7 +255,7 @@
                     $.ajax('/api/charts', {
                         type: 'POST',
                         data: newRows
-                    }).then(function() {
+                    }).then(function () {
                         console.log('added crypto')
                         location.reload();
                     })
@@ -232,7 +269,7 @@
             $.ajax({
                 url: queryURL,
                 method: 'GET'
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log(add)
                 let price = response[0].current_price
                 let id = response[0].id
@@ -244,7 +281,7 @@
         //calling setup immediately to build the table//
         setup()
         //on click add the users crypto to table and graph//
-        $('#add').on('click', function(event) {
+        $('#add').on('click', function (event) {
             event.preventDefault()
             setup()
             setInterval(setup, 120000)
@@ -254,4 +291,5 @@
 
     </script>
 </body>
+
 </html>
