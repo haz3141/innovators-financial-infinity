@@ -18,9 +18,11 @@ exports.charts = function(req, res) {
 };
 
 exports.trade = function(req, res) {
+  console.log("req", req.session);
+  // console.log("res::::", res);
   // res.render("trade");
   db.User.findAll({}).then(function(dbUsers) {
-    console.log(dbUsers);
+    // console.log(dbUsers);
     res.render("trade", {
       msg: "Trade!",
       users: dbUsers
