@@ -215,6 +215,13 @@
                         $('<td>').text(response[i].price_change_percentage_24h.toFixed(2) + '%')
                     )
                     $('#coin-prices').append(newRows)
+                    $.ajax('/api/charts', {
+                        type: 'POST',
+                        data: newRows
+                    }).then(function() {
+                        console.log('added crypto')
+                        location.reload();
+                    })
                 }
             })
         }

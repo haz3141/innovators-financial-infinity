@@ -23,7 +23,7 @@ module.exports = function(app, passport) {
   });
 
   app.get("/charts", function(req, res) {
-    res.render("crypto");
+    res.render("charts");
   });
 
   // Load example page and pass in an example by id
