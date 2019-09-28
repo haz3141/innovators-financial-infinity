@@ -15,6 +15,8 @@ module.exports = function(app) {
     });
   });
 
+  app.post('/api/charts')
+
   // Create a new example
   app.post("/api/examples", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) {
