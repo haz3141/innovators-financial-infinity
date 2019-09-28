@@ -10,8 +10,8 @@ module.exports = function(app) {
 
   // GET ALL USERS
   app.get("/api/users", function(req, res) {
-    db.User.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+    db.User.findAll({}).then(function(dbUsers) {
+      res.json(dbUsers);
     });
   });
 
