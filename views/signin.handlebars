@@ -1,7 +1,41 @@
-<form id="signin" name="signin" method="post" action="signin">
-  <label for="email">Email Address</label>
-  <input class="text" name="email" type="text" />
-  <label for="password">Password</label>
-  <input name="password" type="password" />
-  <input class="btn" type="submit" value="Sign In" />
-</form>
+<head>
+  <meta charset="utf-8">	  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">	  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/main.css" media="screen" title="no title" charset="utf-8">	  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700&display=swap" rel="stylesheet">
+  <title>Home Page</title>
+</head>
+
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>  Login</h1>
+        <form id="signin" name="signin" method="post" action="signin">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Enter Password"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+        <p class="lead mt-4">
+          No Account? <a href="/users/register">Register</a>
+        </p>
+      </div>
+    </div>
+  </div> 
