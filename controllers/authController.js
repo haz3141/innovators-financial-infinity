@@ -16,6 +16,10 @@ exports.charts = function(req, res) {
   res.render("charts");
 };
 
+exports.trade = function(req, res) {
+  res.render("trade");
+};
+
 exports.logout = function(req, res) {
   // eslint-disable-next-line no-unused-vars
   req.session.destroy(function(err) {
