@@ -7,7 +7,6 @@ module.exports = function(app, passport) {
     res.render("landing");
   });
 
-  
   app.get("/signin", function(req, res) {
     res.render("signin");
   });
@@ -20,6 +19,9 @@ module.exports = function(app, passport) {
     res.render("dashboard");
   });
 
+  app.get("/charts", function(req, res) {
+    res.render("crypto");
+  });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
