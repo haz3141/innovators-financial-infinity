@@ -1,0 +1,14 @@
+<h1>{{msg}}</h1>
+<ul>
+  {{#each users}}
+  	<li>
+  		<p><span class="label">ID:</span> {{this.id}}</p>
+      <p><span class="label">Quote:</span> {{this.firstname}}</p>
+      <p><span class="label">Author:</span> {{this.lastname}}</p>
+
+      {{!-- <button data-id="{{this.id}}" class="delquote">Delete</button>
+
+      <a href="/{{this.id}}">Update this quote</a> --}}
+  	</li>
+  {{/each}}
+</ul>
