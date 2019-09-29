@@ -10,6 +10,9 @@ module.exports = function(app, passport) {
       });
     });
   });
+  app.get("/index", function(req, res) {
+    res.render("index");
+  });
 
   app.get("/landing", function(req, res) {
     res.render("landing");

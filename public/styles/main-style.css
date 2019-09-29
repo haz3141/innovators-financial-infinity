@@ -1,39 +1,34 @@
-/* 
-  
-  .logo {
-    font-family: 'Josefin Sans', sans-serif;
-    text-decoration: none;
-    padding: 16px;
-    display: inline-block;
-    width: auto;
-    overflow: none;
-    font-weight: bold;
-    color: rgb(245, 229, 13);
-  }
-  .header {
-    background-color: rgb(0, 0, 0);
-    display:block;
-    position: sticky;
-    align-items: center;
-    width: 100%;
-    height: 60px;
-    padding: 0 32px;
-  } */
-  body{
+   body{
     background-image: url("https://miro.medium.com/max/2560/1*2cdqBbOJUdvqGVKxAi1JtA.png");
     background-size: cover;
     height: 300px;
     background-position: center;
     display: block;
+    color: #ffffff;
   }
 
-  .card{
-      background-color: black;
-      color: white;
-      position: relative;  
+  .card-body{
+    background-color: black;
   }
 
-  .btn{
-    background-color: #d6c73d;
-    border: none;
+  .fas, #text{
+    color: #ffffff;
   }
+
+  .navbar{
+    background-color: rgb(39, 37, 37);
+  }
+
+  .navbar-brand{
+    font-family: 'Lato', sans-serif;
+    color: rgb(245, 183, 12);
+    font-size: 23px;
+    letter-spacing: 1px;
+    font-weight: unset;
+  }
+
+  .nav-link{
+    font-family: 'Lato', sans-serif;
+    color:  #ffffff;
+  }
+
