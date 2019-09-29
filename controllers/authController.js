@@ -1,4 +1,5 @@
 var exports = (module.exports = {});
+var db = require("../models");
 
 exports.signup = function(req, res) {
   res.render("signup");
@@ -17,7 +18,16 @@ exports.charts = function(req, res) {
 };
 
 exports.trade = function(req, res) {
-  res.render("trade");
+  console.log("req", req.session);
+  // console.log("res::::", res);
+  // res.render("trade");
+  db.User.findAll({}).then(function(dbUsers) {
+    // console.log(dbUsers);
+    res.render("trade", {
+      msg: "Trade!",
+      users: dbUsers
+    });
+  });
 };
 
 exports.logout = function(req, res) {
