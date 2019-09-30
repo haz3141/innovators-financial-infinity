@@ -28,3 +28,21 @@ body{
   font-family: 'Lato', sans-serif;
   color:  #ffffff;
 }
+
+.card{
+  background-color: black;
+}
+
+h1{
+  margin-bottom: 50px
+}
+
+section{
+  height: 360px;
+}
+
+.marquee{
+  height: 200px;
+  position: relative;
+  top: 25px;
+}

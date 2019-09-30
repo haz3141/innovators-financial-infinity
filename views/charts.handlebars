@@ -1,36 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" href="/styles/main-style.css">
 </head>
+
 <body>
-    <nav>
-    <div class="logo">
-      <h4>The nav</h4>
-    </div>
-    <div class="nav-a">
-      <ul>
-        <li>
-          <a href="/dashboard">Home</a>
-        </li>
-        <li>
-          <a href="/landing">About</a>
-        </li>
-        <li>
-          <a href="/charts">Charts</a>
-      </ul>
-    </div>
-  </nav>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/home">CRYNANCE</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/landing">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/charts">Market</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/trade">Exchange</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Exchange
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="https://www.binance.com/en/markets">Basic</a>
+                                <a class="dropdown-item" href="#">Advanced</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div>
+    </header>
+    </nav>
     <div id='coins'>
         <h1 class='text-center bg-transparent text-white'>Crypto Prices</h1>
-        <table style='margin-bottom: 20px; border-top: silver 2px solid; border-bottom: silver 2px solid;' class="table table-secondary" id='coin-prices'>
+        <table style='margin-bottom: 20px; border-top: silver 2px solid; border-bottom: silver 2px solid;'
+            class="table table-secondary" id='coin-prices'>
             <thead class='headers'>
                 <tr>
                     <th scope="col">Symbol</th>
@@ -51,10 +80,12 @@
             <div class='col-4 input'>
                 <form>
                     <div class="form-group">
-                        <label style='margin-left: 50px; color: white; font-size: 20px;' for="crypto">Add Crypto:</label>
+                        <label style='margin-left: 50px; color: white; font-size: 20px;' for="crypto">Add
+                            Crypto:</label>
                         <input type="text" class="form-control" id="custom" placeholder="Enter Crypto Name">
                     </div>
-                    <button type="submit" id='add' style='margin-left: 14px; margin-bottom: 20px;' class="btn btn-secondary">Add Crypto To Table</button>
+                    <button type="submit" id='add' style='margin-left: 14px; margin-bottom: 20px;'
+                        class="btn btn-secondary">Add Crypto To Table</button>
                 </form>
             </div>
             <div class='col-4'>
@@ -83,9 +114,10 @@
             justify-content: center;
             align-content: space-between;
         }
-        body {
+
+        {{!-- body {
             background-image: linear-gradient(to right, black, red, grey)
-        }
+        } --}}
     </style>
     <script>
         //making initial charts//
@@ -94,7 +126,7 @@
             $.ajax({
                 url: queryURL,
                 method: 'GET'
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log(response)
                 var bitcoinPrice = response[0].current_price
                 var ethPrice = response[1].current_price
@@ -127,36 +159,36 @@
                 labels: [],
                 datasets: [
                     {
-                    data: [],
-                    label: 'bitcoin',
-                    borderColor: gradientStroke,
-                    pointBorderColor: gradientStroke,
-                    pointBackgroundColor: gradientStroke,
-                    pointHoverBackgroundColor: gradientStroke,
-                    pointHoverBorderColor: gradientStroke,
-                    fill: true
+                        data: [],
+                        label: 'bitcoin',
+                        borderColor: gradientStroke,
+                        pointBorderColor: gradientStroke,
+                        pointBackgroundColor: gradientStroke,
+                        pointHoverBackgroundColor: gradientStroke,
+                        pointHoverBorderColor: gradientStroke,
+                        fill: true
                     },
                     {
-                    data: [],
-                    label: 'litecoin',
-                    borderColor: gradientStrokeTwo,
-                    pointBorderColor: gradientStrokeTwo,
-                    pointBackgroundColor: gradientStrokeTwo,
-                    pointHoverBackgroundColor: gradientStrokeTwo,
-                    pointHoverBorderColor: gradientStrokeTwo,
-                    fill: true
+                        data: [],
+                        label: 'litecoin',
+                        borderColor: gradientStrokeTwo,
+                        pointBorderColor: gradientStrokeTwo,
+                        pointBackgroundColor: gradientStrokeTwo,
+                        pointHoverBackgroundColor: gradientStrokeTwo,
+                        pointHoverBorderColor: gradientStrokeTwo,
+                        fill: true
                     },
                     {
-                    data: [],
-                    label: 'Ethereum',
-                    borderColor: 'blue',
-                    fill: true
+                        data: [],
+                        label: 'Ethereum',
+                        borderColor: 'blue',
+                        fill: true
                     },
                     {
-                    data: [],
-                    label: 'user',
-                    borderColor: 'black',
-                    fill: true
+                        data: [],
+                        label: 'user',
+                        borderColor: 'black',
+                        fill: true
                     }
                 ]
             },
@@ -201,7 +233,7 @@
             $.ajax({
                 url: queryURL,
                 method: 'GET'
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log(add)
                 console.log(response)
                 for (let i = 0; i < response.length; i++) {
@@ -218,7 +250,7 @@
                     $.ajax('/api/charts', {
                         type: 'POST',
                         data: newRows
-                    }).then(function() {
+                    }).then(function () {
                         console.log('added crypto')
                         location.reload();
                     })
@@ -232,7 +264,7 @@
             $.ajax({
                 url: queryURL,
                 method: 'GET'
-            }).then(function(response) {
+            }).then(function (response) {
                 console.log(add)
                 let price = response[0].current_price
                 let id = response[0].id
@@ -244,7 +276,7 @@
         //calling setup immediately to build the table//
         setup()
         //on click add the users crypto to table and graph//
-        $('#add').on('click', function(event) {
+        $('#add').on('click', function (event) {
             event.preventDefault()
             setup()
             setInterval(setup, 120000)
@@ -254,4 +286,5 @@
 
     </script>
 </body>
+
 </html>

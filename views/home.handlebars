@@ -11,7 +11,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/home.css">
   <title>Home Page</title>
 </head>
 
@@ -19,7 +19,7 @@
 <header>
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="/index">CRYNANCE</a>
+      <a class="navbar-brand" href="/home">CRYNANCE</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,23 +33,55 @@
           <li class="nav-item">
             <a class="nav-link" href="/trade">Exchange </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Exchange
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="https://www.binance.com/en/markets">Basic</a>
-              <a class="dropdown-item" href="#">Advanced</a>
-            </div>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
+</header>
 
-  <body>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<body>
+  <div class="card bg text-white">
+    <section>
+      <h1 style="text-align:center;">Heading</h1>
+      <marquee behavior="alternate">
+        <a href="https://www.binance.com/en">
+          <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+        </a>
+        <a href="https://www.binance.com/en">
+          <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+        </a>
+        <a href="https://www.binance.com/en">
+          <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+        </a>
+        <a href="https://www.binance.com/en">
+          <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+        </a>
+      </marquee>
+    </section>
+    {{!-- <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text">Last updated 3 mins ago</p>
+  </div> --}}
+  </div>
+  {{!-- <section>
+    <h1 style="text-align:center;">Heading</h1>
+    <marquee behavior="alternate">
+      <a href="https://www.binance.com/en">
+        <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:100px;height:100px;border:0">
+      </a>
+      <a href="https://www.binance.com/en">
+        <img src="/public/images/crypto-background.png" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+      </a>
+      <a href="https://www.binance.com/en">
+        <img src="/public/images/crypto-background.png" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+      </a>
+      <a href="https://www.binance.com/en">
+        <img src="/public/images/crypto-background.png" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+      </a>
+    </marquee>
+  </section> --}}
+  {{!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -87,8 +119,7 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-          </div>
-</header>
+          </div> --}}
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

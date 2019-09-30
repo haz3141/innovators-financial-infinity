@@ -6,7 +6,11 @@
     display: block;
     color: #ffffff;
   }
-
+  .container {
+    padding: 0;
+    margin: 0;
+  }
+  
   .card-body{
     background-color: black;
   }
@@ -32,3 +36,7 @@
     color:  #ffffff;
   }
 
+  .btn-primary{
+    background-color: rgb(245, 183, 12);
+    border: none;
+  }
