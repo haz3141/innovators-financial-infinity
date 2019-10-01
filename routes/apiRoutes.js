@@ -15,13 +15,36 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/charts", function(req, res) {
+    db.Coin.findAll({}).then(function(examples) {
+      res.json(examples);
+    });
+  });
+
   app.post("/api/charts", function(req, res) {
+    console.log(req.body);
     db.Coin.create({
+      image: req.body.image,
       symbol: req.body.symbol,
-      name: req.body.name,
       currentprice: req.body.currentprice,
       volume: req.body.volume,
       change: req.body.change
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
+
+  app.get("/api/graphs", function(req, res) {
+    db.Graph.findAll({}).then(function(examples) {
+      res.json(examples);
+    });
+  });
+
+  app.post("/api/graphs", function(req, res) {
+    console.log(req.body);
+    db.Graph.create({
+      price: req.body.price,
+      current_time: req.body.current_time
     }).then(function(results) {
       res.json(results);
     });
