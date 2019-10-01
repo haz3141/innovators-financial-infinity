@@ -50,6 +50,22 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/lines", function(req, res) {
+    db.Lines.findAll({}).then(function(examples) {
+      res.json(examples);
+    });
+  });
+
+  app.post("/api/lines", function(req, res) {
+    console.log(req.body);
+    db.Lines.create({
+      ethprice: req.body.ethprice,
+      time: req.body.time
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
+
   // Create a new example
   app.post("/api/examples", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) {

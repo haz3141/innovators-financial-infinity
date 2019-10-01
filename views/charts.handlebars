@@ -1,34 +1,42 @@
-<nav>
-    <div class="logo">
-      <h4>The nav</h4>
-    </div>
-    <div class="nav-a">
-      <ul>
-        <li>
-          <a href="/dashboard">Home</a>
-        </li>
-        <li>
-          <a href="/landing">About</a>
-        </li>
-        <li>
-          <a href="/charts">Charts</a>
-      </ul>
+<header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container content">
+      <a class="navbar-brand" href="/">CRYNANCE</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item active">
+            <a class="nav-link" href="/charts">Charts <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/trade">Exchange </a>
+          </li>
+          <li class="nav-item" style='margin-left: 700px; position: absolute; right: 15px;'>
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
+</header>
     <div id='coins'>
-        <h1 class='text-center bg-transparent text-white'>Crypto Prices</h1>
-        <table style='margin-bottom: 20px; border-top: silver 2px solid; border-bottom: silver 2px solid;' class="table table-secondary" id='coin-prices'>
+        {{!-- <h1 class='text-center' style='color: #007bff; background-color: rgba(187, 183, 183, 0.9);'>Crypto Prices</h1> --}}
+        <table style='margin-bottom: 20px; border-top: solid grey 2px; border-bottom: silver 2px solid;' class="table table-secondary" id='coin-prices'>
             <thead class='headers'>
                 <tr>
                     <th scope="col">Logo</th>
                     <th scope="col">Symbol</th>
                     <th scope="col">Current Price</th>
-                    <th scope="col">Volume</th>
+                    <th scope="col">24hr Volume</th>
                     <th scope="col">Change(24Hr)</th>
                     <th scope="col">Delete</th>
                 </tr>
             </thead>
-            <tbody id='prices'>
+            <tbody id='prices' style='background-color: rgba(187, 183, 183, 0.9);'>
                 {{#each coins}}
                 <tr>
                     <td>{{coin.image}}</td>
@@ -45,22 +53,35 @@
     </div>
     <div class='container'>
         <div class='row'>
-            <div class='col-4'>
+            <div class='col-2'>
             </div>
             <div class='col-4 input'>
                 <form>
                     <div class="form-group">
-                        <label style='margin-left: 50px; color: white; font-size: 20px;' for="crypto">Add Crypto:</label>
-                        <input type="text" class="form-control" id="custom" placeholder="Enter Crypto Name">
+                        <label style='margin-left: 40px; color: white; font-size: 20px; margin-left: 45px; color: rgb(46, 45, 45); margin-top: 5px;' for="crypto">Add Crypto:</label>
+                        <input type="text" class="form-control" id="custom" placeholder="Enter Crypto ID">
                     </div>
-                    <button type="submit" id='add' style='margin-left: 14px; margin-bottom: 20px;' class="btn btn-secondary">Add Crypto To Table</button>
+                    <button type="submit" id='add' style='margin-left: 11.8px; margin-bottom: 20px; color: rgb(32, 32, 32);' class="btn btn-secondary">Add Crypto To Table</button>
                 </form>
             </div>
-            <div class='col-4'>
+            <div class='col-4 offset-1 input'>
+                <form>
+                    <div class="form-group">
+                        <label style='margin-left: 40px; color: white; font-size: 20px; margin-left: 45px; color: rgb(46, 45, 45); margin-top: 5px;' for="crypto">Add Crypto:</label>
+                        <input type="text" class="form-control" id="custom_graph" placeholder="Enter Crypto ID">
+                    </div>
+                    <button type="submit" id='graph' style='margin-left: 40px; margin-bottom: 20px; color: rgb(32, 32, 32);' class="btn btn-secondary">Create Graph</button>
+                </form>
+            </div>
+            <div class='col-2'>
             </div>
         </div>
-        <canvas id='bitcoin-chart' style='margin-bottom: 20px;'>
-        </canvas>
+        <div>
+             <canvas id='bitcoin-chart' style='margin-bottom: 20px; background: rgba(14, 13, 13, 0.9); padding-bottom: 20px; border: solid 2px #007bff'>
+            </canvas>
+            <canvas id='ethereum-chart' style='margin-bottom: 20px; background: rgba(14, 13, 13, 0.9); padding-bottom: 20px; padding-right: 20px; border: solid 2px #007bff'>
+            </canvas>
+        </div>
     </div>
     <style>
         .crypto {
@@ -68,10 +89,27 @@
             height: 40px;
         }
 
+        .navbar-brand{
+            font-family: 'Lato', sans-serif;
+            font-size: 23px;
+            letter-spacing: 1px;
+            font-weight: unset;
+        }
 
+        .content {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar{
+            background-color: rgb(20, 19, 19);
+            border-bottom: solid grey 2px;
+            margin-bottom: 30px;
+        }
 
         .headers {
-            background-color: silver;
+            background-color: rgb(20, 19, 19);
+            color: #007bff;
         }
 
         #coin-prices {
@@ -83,12 +121,22 @@
             display: flex;
             justify-content: center;
             align-content: space-between;
+            background: rgb(146, 143, 143, 0.9);
+            border: solid 2px #007bff;
+            height: 150px;
+            margin-top: 20px;
+            position: relative;
+            right: 45px;
+            margin-bottom: 40px;
         }
+
         body {
             background-image: url("https://miro.medium.com/max/2560/1*2cdqBbOJUdvqGVKxAi1JtA.png");
             background-size: cover;
             background-position: center;
         }
+
+
     </style>
     <script>
     $(document).ready(function() {
@@ -99,14 +147,17 @@
                 url: queryURL,
                 method: 'GET'
             }).then(function(response) {
-                console.log('my response' + JSON.stringify(response))
-                var bitcoinPrice = response[0].current_price
+                let bitcoinPrice = response[0].current_price
+                let ethPrice = response[1].current_price
                 let today = new Date()
                 let time = today.getHours() + ':' + today.getMinutes() + today.getSeconds();
-                console.log(time)
                 let userData = {
                     price: bitcoinPrice,
                     current_time: time
+                }
+                let userDataTwo = {
+                    ethprice: ethPrice,
+                    time: time
                 }
                 $.ajax('/api/graphs', {
                     type: 'POST',
@@ -114,30 +165,53 @@
                 }).then(function(response) {
                     console.log(JSON.stringify(response))
                 })
+
+                $.ajax('/api/lines', {
+                    type: 'POST',
+                    data: userDataTwo
+                }).then(function(response) {
+                    console.log(JSON.stringify(response))
+                })
             })
-            setInterval(add_data, 300000)
+            setInterval(add_data, 60000)
         }
 
+        function refresh() {
+            window.location.reload()
+        }
+
+        setTimeout(refresh, 30000)
+
         function getData(chart, label, data) {
+            console.log(bitcoinChart.data.datasets[0].data)
             $.ajax('/api/graphs', {
                 type: 'GET'
             }).then(function(response) {
-                console.log('data', response)
                 for (let i = 0; i < response.length; i++) {
                     bitcoinChart.data.datasets[0].data.push(response[i].price)
                     bitcoinChart.data.labels.push(response[i].current_time)
                     bitcoinChart.update()
                 }
             })
-            setInterval(getData, 300000)
+            $.ajax('/api/lines', {
+                type: 'GET'
+            }).then(function(response) {
+                for (let j = 0; j < response.length; j++) {
+                    ethChart.data.datasets[0].data.push(response[j].ethprice)
+                    ethChart.data.labels.push(response[j].time)
+                    ethChart.update()
+                }
+            })
+            setInterval(getData, 60000)
         } 
-        //changing chart css
+        //changing chart css//
         Chart.defaults.global.defaultFontColor = 'white'
         Chart.defaults.global.title.fontSize = 20
 
         const ctx = document.getElementById('bitcoin-chart').getContext('2d');
+        const ctxTwo = document.getElementById('ethereum-chart').getContext('2d');
 
-        var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+        var gradientStroke = ctxTwo.createLinearGradient(500, 0, 100, 0);
         gradientStroke.addColorStop(0, "#80b6f4");
         gradientStroke.addColorStop(1, "#f49080");
 
@@ -159,7 +233,7 @@
                     pointBackgroundColor: gradientStrokeTwo,
                     pointHoverBackgroundColor: gradientStrokeTwo,
                     pointHoverBorderColor: gradientStrokeTwo,
-                    fill: true
+                    fill: false,
                     },
                 ]
             },
@@ -168,9 +242,22 @@
                     display: true,
                     text: 'Bitcoin Price Chart'
                 },
+                legend: {
+                    display: true
+                },
+                elements: {
+                    line: {
+                        tension: 0
+                    }
+                },
+                responsive: true,
                 scales: {
                     yAxes: [{
                         display: true,
+                        gridLines: {
+                            display: true,
+                            color: 'grey'
+                        },
                         ticks: {
                             steps: 10,
                             stepSize: 500,
@@ -179,6 +266,62 @@
                             suggestedMin: 5000
                         }
                     }],
+                    xAxes: [{
+                        display: false
+                    }]
+                }
+            }
+        })
+
+        let ethChart = new Chart(ctxTwo, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                    data: [],
+                    label: 'Ethereum',
+                    borderColor: gradientStroke,
+                    pointBorderColor: gradientStroke,
+                    pointBackgroundColor: gradientStroke,
+                    pointHoverBackgroundColor: gradientStroke,
+                    pointHoverBorderColor: gradientStroke,
+                    fill: false,
+                    },
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Ethereum Price Chart'
+                },
+                legend: {
+                    display: true
+                },
+                elements: {
+                    line: {
+                        tension: 0
+                    }
+                },
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        display: true,
+                        gridLines: {
+                            display: true,
+                            color: 'grey'
+                        },
+                        ticks: {
+                            steps: 8,
+                            stepSize: 50,
+                            beginAtZero: false,
+                            suggestedMax: 500,
+                            suggestedMin: 100
+                        }
+                    }],
+                    xAxes: [{
+                        display: false
+                    }]
                 }
             }
         })
@@ -189,7 +332,8 @@
         //making custom graphs and table graphs from user data//
         //add new post to store data//
         function setup() {
-             let queryURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,litecoin&price_change_percentage=24hr'
+            $('#prices').empty()
+            let queryURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,litecoin&price_change_percentage=24hr'
             $.ajax({
                 url: queryURL,
                 method: 'GET'
@@ -228,7 +372,6 @@
                 }
             })
             }) 
-
         }
 
         function userResponse() {
@@ -257,6 +400,18 @@
                 })
             })
         }
+
+        function userGraph() {
+            let add = $('#custom_graph').val().trim()
+            let queryURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=' + add + '&price_change_percentage=24hr'
+            $.ajax({
+                url: queryURL,
+                method: 'GET'
+            }).then(function(response) {
+                console.log(response)
+
+            })
+        }
         //**notes**//
         //build user custom made graphs//
         //calling setup immediately to build the table//
@@ -265,6 +420,11 @@
         $('#add').on('click', function(event) {
             event.preventDefault()
             userResponse()
+        })
+
+        $('#graph').on('click', function(event) {
+            event.preventDefault()
+            userGraph()
         })
     })
 </script>
