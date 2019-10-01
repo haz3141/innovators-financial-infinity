@@ -3,51 +3,35 @@ var db = require("../models");
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app, passport) {
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-
-
-      // console.log(dbExamples);
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
-
-  app.get("/index", function(req, res) {
     res.render("index");
   });
 
-  // app.get("/signin", function(req, res) {
-  //   res.render("signin");
-  // });
+  app.get("/landing", function(req, res) {
+    res.render("landing");
+  });
 
-  // app.get("/signup", function(req, res) {
-  //   res.render("signup");
-  // });
+  app.get("/signin", function(req, res) {
+    res.render("signin");
+  });
 
-  // app.get("/dashboard", function(req, res) {
-  //   res.render("dashboard");
-  // });
+  app.get("/signup", function(req, res) {
+    res.render("signup");
+  });
 
-  // app.get("/charts", function(req, res) {
-  //   res.render("charts");
-  // });
+  app.get("/dashboard", function(req, res) {
+    res.render("dashboard");
+  });
 
-  // app.get("/trade", function(req, res) {
-  //   res.render("trade");
-  // });
+  app.get("/charts", function(req, res) {
+    db.Coin.findAll({}).then(coin => {
+      console.log("the coin", coin);
+      res.render("charts", { coins: coin });
+    });
+  });
 
-  // app.get("/trade", function(req, res) {
-  //   db.User.findAll({}).then(function(dbUsers) {
-  //     console.log(dbUsers);
-  //     res.render("trade", {
-  //       msg: "Trade!",
-  //       users: dbUsers
-  //     });
-  //   });
-  // });
-
+  app.get("/trade", function(req, res) {
+    res.render("trade");
+  });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
