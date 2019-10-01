@@ -13,10 +13,12 @@ function handlePut(event) {
   let expires = time + 1800000;
   let purchase = `
   <li>
+  <p>================</p>
       <p>Time: ${time}</p>
       <p>Price: ${price}</p>
       <p>Type: Put</p>
       <p>Expires: ${expires}</p>
+      <p>================</p>
     </li>`;
   $("#purchase-list").append(purchase);
 }
@@ -26,10 +28,12 @@ function handleCall(event) {
   let expires = time + 1800000;
   let purchase = `
   <li>
+  <p>================</p>
       <p>Time: ${time}</p>
       <p>Price: ${price}</p>
       <p>Type: Call</p>
       <p>Expires: ${expires}</p>
+      <p>================</p>
     </li>`;
   $("#purchase-list").append(purchase);
 }
