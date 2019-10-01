@@ -10,7 +10,7 @@ function getRndInteger(min, max) {
 
 function handlePut(event) {
   event.preventDefault();
-  let expires = price + 1800000;
+  let expires = time + 1800000;
   let purchase = `
   <li>
       <p>Time: ${time}</p>
@@ -23,7 +23,7 @@ function handlePut(event) {
 
 function handleCall(event) {
   event.preventDefault();
-  let expires = price + 1800000;
+  let expires = time + 1800000;
   let purchase = `
   <li>
       <p>Time: ${time}</p>
