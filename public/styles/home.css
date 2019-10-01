@@ -12,6 +12,11 @@ body{
   color: #ffffff;
 }
 
+.container {
+  padding: 0;
+  margin: 0;
+}
+
 .navbar{
   background-color: rgb(39, 37, 37);
 }
