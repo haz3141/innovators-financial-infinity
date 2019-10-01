@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     let Coin = sequelize.define("Coin", {
-       symbol: {
-           type: DataTypes.BLOB,
+       image: {
+           type: DataTypes.STRING,
            notEmpty: true
        },
-       name: {
+       symbol: {
            type: DataTypes.STRING,
            notEmpty: true
        },
