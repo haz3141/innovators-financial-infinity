@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
 
   app.get("/charts", isLoggedIn, authController.charts);
 
-  app.get("/trade", isLoggedIn, authController.trade);
+  app.get("/trade/", isLoggedIn, authController.trade);
 
   app.get("/logout", authController.logout);
 

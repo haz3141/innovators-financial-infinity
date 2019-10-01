@@ -18,10 +18,11 @@ exports.charts = function(req, res) {
 };
 
 exports.trade = function(req, res) {
-  console.log("req", req.session);
+  console.log("req", req.session.passport.user);
+  let currentUser = req.session.passport.user;
   // console.log("res::::", res);
   // res.render("trade");
-  db.User.findAll({}).then(function(dbUsers) {
+  db.User.findOne({ where: {id: currentUser}}).then(function(dbUsers) {
     // console.log(dbUsers);
     res.render("trade", {
       msg: "Trade!",
