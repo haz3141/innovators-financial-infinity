@@ -3,105 +3,58 @@
   <script src="https://kit.fontawesome.com/8e3c874e17.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/main-style.css">
-  <title>Registration Page</title>
+  <title>Home Page</title>
 </head>
-<header>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-
-      <a class="navbar-brand" href="/">CRYNANCE</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/dashboard">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/charts">Market</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/trade">Exchange</a>
-          </li>
-        </ul>
-
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h2>Welcome {{USER}}!</h2>
-                <h1 class="display-4">Fluid jumbotron</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
-                </p>
-            </div>
-        </div>
-    </div>
-</body> --}}
-
- <nav>
-    <div class="logo">
-      <h4>The nav</h4>
-    </div>
-    <div class="nav-a">
-      <ul>
-        <li>
-          <a href="/dashboard">Home</a>
-        </li>
-        <li>
-          <a href="/landing">About</a>
-        </li>
-        <li>
-          <a href="/charts">Charts</a>
-        </li>
-        <li>
-          <a href="/trade">Trade</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-<div class="container">
-
-  <div class="row">
-
-    <div class="col-xs-2">
-
-      <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <a href="#">Dashboard</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Messages</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Widgets</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Analytics</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Forms</a>
-        </div>
-
-
-      </div>
-    </div>
-  </nav>
-</header>
 
 <body>
-  
-
-  <script>
-
-  </script>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container content">
+        <a class="navbar-brand" href="/">CRYNANCE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item active">
+              <a class="nav-link" href="/charts">Charts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/trade">Exchange </a>
+            </li>
+            <li class="nav-item" style='margin-left: 700px; position: absolute; right: 15px;'>
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <section style='background: black;'>
+      <h1 id='header' style="text-align:center;">The World's Latest Cryptocurrency Exchange</h1><br>
+      <p style='text-align:center;'> Buy, Trade, and keep your Crypto safe with out worry. </p>
+      <marquee behavior=" alternate">
+        <a href="/dashboard">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9JffTFD66Jey3JCpmrbeFqkXfZV-zcJCPU7zr3ZNbM59LpB-l"
+            alt="HTML tutorial" style="width:378px;height:189px;border:0">
+        </a>
+        <a href="/">
+          <img
+            src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1019684371%2F960x0.jpg%3Ffit%3Dscale"
+            alt="HTML tutorial" style="width:378px;height:189px;border:0">
+        </a>
+        <a href="/charts">
+          <img src="https://themerkle.com/wp-content/uploads/2017/02/bitcoin-price-all-time-high.jpg"
+            alt="HTML tutorial" style="width:378px;height:189px;border:0">
+        </a>
+        <a href="/trade">
+          <img src="https://www.btcnn.com/wp-content/uploads/2018/10/Cryptocurrency-Exchange.png" alt="HTML tutorial"
+            style="width:378px;height:189px;border:0">
+        </a>
+      </marquee>
+    </section>
+  </div>
 </body>

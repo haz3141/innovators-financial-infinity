@@ -41,3 +41,12 @@
     background-color: rgb(245, 183, 12);
     border: none;
   }
+
+  #header{
+    color: rgb(245, 183, 12);
+    margin: 0;
+  }
+
+  p{
+    margin: 0;
+  }
