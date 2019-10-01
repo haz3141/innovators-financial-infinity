@@ -7,36 +7,44 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-<main role="main" class="flex-shrink-0"
+  <div id="page-container">
+    <div id="content-wrap">
+      <main role="main" class="flex-shrink-0" <div id="signInRow" class="row">
+        <div id="signInContainer" class="col-8 mt-3 mx-auto">
+          <div id="signInJumbo" class="jumbotron p-b-50 mx-auto mt-3">
+            <div class="col-md-11 mx-auto">
+              <div class="card card-body">
+                <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Login</h1>
+                <form id="signin" name="signin" method="post" action="signin">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+                  </div>
 
-  <div id="signInRow" class="row">
-    <div id="signInContainer" class="col-8 mt-3 mx-auto">
-      {{!-- <div class="col-md-4 m-auto"> --}}
-      <div id="signInJumbo" class="jumbotron p-b-50 mx-auto mt-3">
-        <div class="col-md-11 mx-auto">
-          <div class="card card-body">
-            <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Login</h1>
-            <form id="signin" name="signin" method="post" action="signin">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control"
+                    placeholder="Enter Password" />
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <p class="lead mt-4">
+                No Account? <a href="/register">Register</a>
+                </p>
               </div>
-
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control"
-                  placeholder="Enter Password" />
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Login</button>
-            </form>
-            <p class="lead mt-4">
-              No Account? <a href="/register">Register</a>
-            </p>
+            </div>
           </div>
         </div>
       </div>
-      {{!-- </div> --}}
-    </div>
+      </main>
+        <footer id="footer" role="contentinfo" class="page-footer font-small white mt-auto mx-auto py-3">
+
+          <div class="footer-copyright text-center">© 2019 Created By:
+            <a href="https://github.com/HoChiefMinh" target="_blank">Minh Pham, </a>
+            <a href="https://github.com/haz3141" target="_blank">Hazael Dominguez, </a>
+            <a href="https://github.com/andrew129" target="_blank">Andrew Stiles </a>
+          </div>
+
+        </footer>
   </div>
-  </main>
 </body>

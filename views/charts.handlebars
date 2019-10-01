@@ -37,16 +37,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/trade">Exchange</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Exchange
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="https://www.binance.com/en/markets">Basic</a>
-                                <a class="dropdown-item" href="#">Advanced</a>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -54,43 +44,56 @@
         <div>
     </header>
     </nav>
-    <div id='coins'>
-        <h1 class='text-center bg-transparent text-white'>Crypto Prices</h1>
-        <table style='margin-bottom: 20px; border-top: silver 2px solid; border-bottom: silver 2px solid;'
-            class="table table-secondary" id='coin-prices'>
-            <thead class='headers'>
-                <tr>
-                    <th scope="col">Symbol</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Current Price</th>
-                    <th scope="col">Volume</th>
-                    <th scope="col">Change(24Hr)</th>
-                </tr>
-            </thead>
-            <tbody id='prices'>
-            </tbody>
-        </table>
-    </div>
-    <div class='container'>
-        <div class='row'>
-            <div class='col-4'>
+
+    <div id="page-container">
+        <div id="content-wrap">
+            <div id='coins'>
+                <h1 class='text-center bg-transparent text-white'>Crypto Prices</h1>
+                <table style='margin-bottom: 20px; border-top: silver 2px solid; border-bottom: silver 2px solid;'
+                    class="table table-secondary" id='coin-prices'>
+                    <thead class='headers'>
+                        <tr>
+                            <th scope="col">Symbol</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Current Price</th>
+                            <th scope="col">Volume</th>
+                            <th scope="col">Change(24Hr)</th>
+                        </tr>
+                    </thead>
+                    <tbody id='prices'>
+                    </tbody>
+                </table>
             </div>
-            <div class='col-4 input'>
-                <form>
-                    <div class="form-group">
-                        <label style='margin-left: 50px; color: white; font-size: 20px;' for="crypto">Add
-                            Crypto:</label>
-                        <input type="text" class="form-control" id="custom" placeholder="Enter Crypto Name">
+            <div class='container'>
+                <div class='row'>
+                    <div class='col-4'>
                     </div>
-                    <button type="submit" id='add' style='margin-left: 14px; margin-bottom: 20px;'
-                        class="btn btn-secondary">Add Crypto To Table</button>
-                </form>
-            </div>
-            <div class='col-4'>
+                    <div class='col-4 input'>
+                        <form>
+                            <div class="form-group">
+                                <label style='margin-left: 50px; color: white; font-size: 20px;' for="crypto">Add
+                                    Crypto:</label>
+                                <input type="text" class="form-control" id="custom" placeholder="Enter Crypto Name">
+                            </div>
+                            <button type="submit" id='add' style='margin-left: 14px; margin-bottom: 20px;'
+                                class="btn btn-secondary">Add Crypto To Table</button>
+                        </form>
+                    </div>
+                    <div class='col-4'>
+                    </div>
+                </div>
+                <canvas id='bitcoin-chart' style='margin-bottom: 20px;'>
+                </canvas>
             </div>
         </div>
-        <canvas id='bitcoin-chart' style='margin-bottom: 20px;'>
-        </canvas>
+        <footer role="contentinfo" class="page-footer font-small white mt-auto mx-auto py-3">
+
+            <div id="footer" class="footer-copyright text-center">© 2019 Created By:
+                <a href="https://github.com/HoChiefMinh" target="_blank">Minh Pham, </a>
+                <a href="https://github.com/haz3141" target="_blank">Hazael Dominguez, </a>
+                <a href="https://github.com/andrew129" target="_blank">Andrew Stiles </a>
+            </div>
+        </footer>
     </div>
     <style>
         .crypto {
@@ -113,9 +116,15 @@
             align-content: space-between;
         }
 
-        {{!-- body {
-            background-image: linear-gradient(to right, black, red, grey)
-        } --}}
+            {
+                {
+                 !-- body {
+                    background-image: linear-gradient(to right, black, red, grey)
+                }
+
+                --
+            }
+        }
     </style>
     <script>
         //making initial charts//

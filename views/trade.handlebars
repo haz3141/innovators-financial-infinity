@@ -6,17 +6,31 @@
   <title>Registration Page</title>
 </head>
 
-<h1>{{msg}}</h1>
-<ul>
-  {{#each users}}
-  	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Quote:</span> {{this.firstname}}</p>
-      <p><span class="label">Author:</span> {{this.lastname}}</p>
+<div id="page-container">
+  <div id="content-wrap">
+    <h1>{{msg}}</h1>
+    <ul>
+      {{#each users}}
+      <li>
+        <p><span class="label">ID:</span> {{this.id}}</p>
+        <p><span class="label">Quote:</span> {{this.firstname}}</p>
+        <p><span class="label">Author:</span> {{this.lastname}}</p>
 
-      {{!-- <button data-id="{{this.id}}" class="delquote">Delete</button>
+    {{!-- <button data-id="{{this.id}}" class="delquote">Delete</button>
 
       <a href="/{{this.id}}">Update this quote</a> --}}
-  	</li>
-  {{/each}}
-</ul>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+
+    <footer id="footer" role="contentinfo" class="page-footer font-small white mt-auto mx-auto py-3">
+
+      <div class="footer-copyright text-center">© 2019 Created By:
+        <a href="https://github.com/HoChiefMinh" target="_blank">Minh Pham, </a>
+        <a href="https://github.com/haz3141" target="_blank">Hazael Dominguez, </a>
+        <a href="https://github.com/andrew129" target="_blank">Andrew Stiles </a>
+      </div>
+
+    </footer>
+</div>

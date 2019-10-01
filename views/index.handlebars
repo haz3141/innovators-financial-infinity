@@ -11,7 +11,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/index.css">
   <title>Home Page</title>
 </head>
 
@@ -40,30 +40,41 @@
 </header>
 
 <body>
-  <div class="card bg text-white">
-    <section>
-      <h1 style="text-align:center;">Heading</h1>
-      <marquee behavior="alternate">
-        <a href="https://www.binance.com/en">
+  <div id="page-container">
+    <div id="content-wrap">
+      <div class="card bg text-white">
+      <section>
+        <h1 style="text-align:center;">The Worlds Latest <br>
+    Crytocurrency Exchange</h1>
+    <p class="d-flex justify-content-center">Buy and Trade cryptocurrency with ease, and keep your wallet safe with confidence</p>
+        <marquee behavior="alternate">
+          <a href="/index">
           <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
-        </a>
-        <a href="https://www.binance.com/en">
-          <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
-        </a>
-        <a href="https://www.binance.com/en">
-          <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
-        </a>
-        <a href="https://www.binance.com/en">
-          <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
-        </a>
-      </marquee>
-    </section>
+          </a>
+          <a href="/dashboard">
+            <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+          </a>
+          <a href="/charts">
+            <img src="https://mk0globalbankin3xg02.kinstacdn.com/wp-content/uploads/2019/08/crypto.jpg" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+          </a>
+          <a href="/trade">
+            <img src="https://gainbitcoin.com/wp-content/uploads/2018/09/Brazils-Biggest-Brokerage-to-launch-a-Crypto-Exchange.png" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+          </a>
+        </marquee>
+      </section>
+    </div>
   </div>
-  
-  <div class="col-sm-4">
-    
-  </div>
-  
+  <footer id="footer" role="contentinfo" class="page-footer font-small white mt-auto mx-auto py-3">
+
+    <div class="footer-copyright text-center">© 2019 Created By:
+      <a href="https://github.com/HoChiefMinh" target="_blank">Minh Pham, </a>
+      <a href="https://github.com/haz3141" target="_blank">Hazael Dominguez, </a>
+      <a href="https://github.com/andrew129" target="_blank">Andrew Stiles </a>
+    </div>
+
+  </footer>
+</div>
+
   <script>
     const queryURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,ripple&sparkline=true'
     $.ajax({

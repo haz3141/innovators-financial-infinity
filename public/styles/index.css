@@ -39,7 +39,9 @@ body{
 }
 
 h1{
-  margin-bottom: 50px
+  margin-bottom: 0;
+  color: rgb(245, 183, 12);
+
 }
 
 section{
@@ -50,4 +52,20 @@ section{
   height: 200px;
   position: relative;
   top: 25px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
 }
