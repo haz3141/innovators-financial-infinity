@@ -3,16 +3,11 @@ var db = require("../models");
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app, passport) {
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("landing", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+    res.render("index");
   });
 
-  app.get("/index", function(req, res) {
-    res.render("index");
+  app.get("/landing", function(req, res) {
+    res.render("landing");
   });
 
   app.get("/signin", function(req, res) {
@@ -28,16 +23,14 @@ module.exports = function(app, passport) {
   });
 
   app.get("/charts", function(req, res) {
-    res.render("charts");
+    db.Coin.findAll({}).then(coin => {
+      console.log("the coin", coin);
+      res.render("charts", { coins: coin });
+    });
   });
 
   app.get("/trade", function(req, res) {
-    db.User.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Trading",
-        users: dbUsers
-      });
-    });
+    res.render("trade");
   });
 
   // Load example page and pass in an example by id
