@@ -6,7 +6,7 @@ var path = require("path");
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 5050;
+var PORT = process.env.PORT || 8080;
 
 var passport = require("passport");
 var session = require("express-session");

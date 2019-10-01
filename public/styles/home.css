@@ -1,0 +1,53 @@
+.list-group-item {
+  line-height: 2.5;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+  background-image: url("https://miro.medium.com/max/2560/1*2cdqBbOJUdvqGVKxAi1JtA.png");
+  background-size: cover;
+  height: 300px;
+  background-position: center;
+  display: block;
+  color: #ffffff;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar{
+  background-color: rgb(39, 37, 37);
+}
+
+.navbar-brand{
+  font-family: 'Lato', sans-serif;
+  color: rgb(245, 183, 12);
+  font-size: 23px;
+  letter-spacing: 1px;
+  font-weight: unset;
+}
+
+.nav-link{
+  font-family: 'Lato', sans-serif;
+  color:  #ffffff;
+}
+
+.card{
+  background-color: black;
+}
+
+h1{
+  margin-bottom: 50px
+}
+
+section{
+  height: 360px;
+}
+
+.marquee{
+  height: 200px;
+  position: relative;
+  top: 25px;
+}
