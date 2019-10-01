@@ -8,7 +8,7 @@ The goal here is to create a fullstack application that allows a user to login a
 
 ## Preview
 
-![Preview](https://github.com/haz3141/burger-eater-app/blob/master/public/assets/images/screenshot.PNG?raw=true)
+![Preview](https://github.com/haz3141/innovators-financial-infinity/blob/master/public/images/screenshot.PNG?raw=true)
 
 ## Getting Started
 
