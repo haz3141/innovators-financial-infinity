@@ -10,19 +10,40 @@
   <div id="content-wrap">
     <h1>{{msg}}</h1>
     <ul>
-      {{#each users}}
+      
       <li>
-        <p><span class="label">ID:</span> {{this.id}}</p>
-        <p><span class="label">Quote:</span> {{this.firstname}}</p>
-        <p><span class="label">Author:</span> {{this.lastname}}</p>
-
+        <p><span class="label">ID:</span> {{users.id}}</p>
+      <p><span class="label">First Name:</span> {{users.firstname}}</p>
+      <p><span class="label">Last Name:</span> {{users.lastname}}</p>
+      <p><span class="label">Tokens:</span> {{users.tokens}}</p>
     {{!-- <button data-id="{{this.id}}" class="delquote">Delete</button>
 
       <a href="/{{this.id}}">Update this quote</a> --}}
       </li>
-      {{/each}}
+      
     </ul>
-  </div>
+    <h2>Price</h2>
+<p><span class="label">$</span><span id="price"></span></p>
+<h2>Time</h2>
+<p><span id="time"></span></p>
+<h2>Options</h2>
+<div>
+  <button id="option-put">Down/Put</button>
+  <button id="option-call">Up/Call</button>
+</div>
+<h2>Purchases</h2>
+<ul id="purchase-list" class="list-group">
+  {{!-- {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}} --}}
+        </ul>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/trade.js"></script>
+
 
     <footer id="footer" role="contentinfo" class="page-footer font-small white mt-auto mx-auto py-3">
 
@@ -33,4 +54,3 @@
       </div>
 
     </footer>
-</div>
