@@ -2,14 +2,24 @@
   <meta charset="utf-8">
   <script src="https://kit.fontawesome.com/8e3c874e17.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/main-style.css">
-  <title>Registration Page</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/styles/index.css">
+  <title>Home Page</title>
 </head>
+
+
 <header>
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-
-      <a class="navbar-brand" href="/">CRYNANCE</a>
+      <a class="navbar-brand" href="/index">CRYNANCE</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -17,92 +27,79 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="/charts">Markets <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/dashboard">About</a>
+            <a class="nav-link" href="/trade">Exchange </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/charts">Market</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/trade">Exchange</a>
+          <li class="nav-item" style='margin-left: 700px; position: absolute; right: 20px;'>
+            <a class="nav-link" href="/signin">Login/Register</a>
           </li>
         </ul>
-
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h2>Welcome {{USER}}!</h2>
-                <h1 class="display-4">Fluid jumbotron</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
-                </p>
-            </div>
-        </div>
-    </div>
-</body> --}}
-
- <nav>
-    <div class="logo">
-      <h4>The nav</h4>
-    </div>
-    <div class="nav-a">
-      <ul>
-        <li>
-          <a href="/dashboard">Home</a>
-        </li>
-        <li>
-          <a href="/landing">About</a>
-        </li>
-        <li>
-          <a href="/charts">Charts</a>
-        </li>
-        <li>
-          <a href="/trade">Trade</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-<div class="container">
-
-  <div class="row">
-
-    <div class="col-xs-2">
-
-      <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <a href="#">Dashboard</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Messages</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Widgets</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Analytics</a>
-        </div>
-
-        <div class="panel-body">
-          <a href="#">Forms</a>
-        </div>
-
-
       </div>
     </div>
   </nav>
 </header>
 
-
 <body>
-  
+  <div id="page-container">
+    <div id="content-wrap">
+      <div class="card bg text-white">
+      <section>
+        <h1 style="text-align:center;">The Worlds Latest <br>
+    Crytocurrency Exchange</h1>
+    <p class="d-flex justify-content-center">Buy and Trade cryptocurrency with ease, and keep your wallet safe with confidence</p>
+        <marquee behavior="alternate">
+          <a href="/">
+          <img src="https://scontent-mia3-1.xx.fbcdn.net/v/t1.0-9/71108542_3409470922403840_5423642786802958336_n.jpg?_nc_cat=101&_nc_oc=AQlXeI9maLcFMa93D0sglRTvf4iyiw4OZ-AgD5KJgxR1QgWZMIzdwA8sNwT7lDzd-OM&_nc_ht=scontent-mia3-1.xx&oh=7941039e3e7e358a63154685b482c903&oe=5E24071F" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+          </a>
+          <a href="/dashboard">
+            <img src="https://picsum.photos/200/300" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+          </a>
+          <a href="/charts">
+            <img src="https://mk0globalbankin3xg02.kinstacdn.com/wp-content/uploads/2019/08/crypto.jpg" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+          </a>
+          <a href="/trade">
+            <img src="https://gainbitcoin.com/wp-content/uploads/2018/09/Brazils-Biggest-Brokerage-to-launch-a-Crypto-Exchange.png" alt="HTML tutorial" style="width:378px;height:189px;border:0">
+          </a>
+        </marquee>
+      </section>
+    </div>
+  </div>
+  <div id="main-content">
+    <div id="main-container" class="d-flex justify-content-end">
+      
+    </div>
+  </div>
+  <footer id="footer" role="contentinfo" class="page-footer font-small white mt-auto mx-auto py-3">
+
+    <div class="footer-copyright text-center">© 2019 Created By:
+      <a href="https://github.com/HoChiefMinh" target="_blank">Minh Pham, </a>
+      <a href="https://github.com/haz3141" target="_blank">Hazael Dominguez, </a>
+      <a href="https://github.com/andrew129" target="_blank">Andrew Stiles </a>
+    </div>
+
+  </footer>
+</div>
 
   <script>
-
+    const queryURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,ripple&sparkline=true'
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).then(function (response) {
+      console.log(response);
+      let bitcoinPrice = response[0].current_price
+      let ethPrice = response[1].current_price
+      let ripplePrice = response[2].current_price
+      let btcLogo = response[0].image
+      let ethLogo = response[1].image
+      let rippleLogo = response[2].image
+      //notes: Step1- get id of marquee  
+      $("#bitcoin")
+    })
   </script>
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
