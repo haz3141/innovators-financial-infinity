@@ -11,6 +11,24 @@
     margin: 0;
   }
   
+  #signInContainer{
+    height: 400px;
+    max-width: 400px;
+  }
+
+  .row{
+    height: 500px;
+    width: 960px;
+  }
+
+  #signInJumbo{
+    background-color: rgb(47, 45, 45);
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 0;
+    padding-right: 0;
+  }
   .card-body{
     margin-top: 9em;
     background-color: black;
