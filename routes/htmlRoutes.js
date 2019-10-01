@@ -23,7 +23,10 @@ module.exports = function(app, passport) {
   });
 
   app.get("/charts", function(req, res) {
-    res.render("charts");
+    db.Coin.findAll({}).then(coin => {
+      console.log("the coin", coin);
+      res.render("charts", { coins: coin });
+    });
   });
 
   app.get("/trade", function(req, res) {

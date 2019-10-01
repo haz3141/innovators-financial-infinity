@@ -25,7 +25,7 @@ app.use(passport.session());
 
 app.set("views", path.join(__dirname, "views"));
 // Handlebars
-app.engine("handlebars", exphbs({defaultLayout: "main"}));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes

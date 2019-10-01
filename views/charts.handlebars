@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
-</head>
-<body>
-    <nav>
+<nav>
     <div class="logo">
       <h4>The nav</h4>
     </div>
@@ -33,14 +20,26 @@
         <table style='margin-bottom: 20px; border-top: silver 2px solid; border-bottom: silver 2px solid;' class="table table-secondary" id='coin-prices'>
             <thead class='headers'>
                 <tr>
+                    <th scope="col">Logo</th>
                     <th scope="col">Symbol</th>
-                    <th scope="col">Name</th>
                     <th scope="col">Current Price</th>
                     <th scope="col">Volume</th>
                     <th scope="col">Change(24Hr)</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody id='prices'>
+                {{#each coins}}
+                <tr>
+                    <td>{{coin.image}}</td>
+                    <td>{{coin.symbol}}</td>
+                    <td>{{coin.name}}</td>
+                    <td>{{coin.currentprice}}</td>
+                    <td>{{coin.volume}}</td>
+                    <td>{{coin.change}}</td>
+                    {{!-- <td><button class="delete-crypto" data-id="{{coin.id}}">DELETE!</button></td> --}}
+                </tr>
+                {{/each}}
             </tbody>
         </table>
     </div>
@@ -88,24 +87,46 @@
         }
     </style>
     <script>
+    $(document).ready(function() {
         //making initial charts//
-        function getData() {
+        function add_data() {
             var queryURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,litecoin'
             $.ajax({
                 url: queryURL,
                 method: 'GET'
             }).then(function(response) {
-                console.log(response)
+                console.log('my response' + JSON.stringify(response))
                 var bitcoinPrice = response[0].current_price
-                var ethPrice = response[1].current_price
-                var litePrice = response[2].current_price
-                console.log(litePrice)
-                bitcoinChart.data.datasets[0].data.push(bitcoinPrice)
-                bitcoinChart.data.datasets[1].data.push(litePrice)
-                bitcoinChart.data.datasets[2].data.push(ethPrice)
-                bitcoinChart.update()
+                let today = new Date()
+                let time = today.getHours() + ':' + today.getMinutes() + today.getSeconds();
+                console.log(time)
+                let userData = {
+                    price: bitcoinPrice,
+                    current_time: time
+                }
+                $.ajax('/api/graphs', {
+                    type: 'POST',
+                    data: userData
+                }).then(function(response) {
+                    console.log(JSON.stringify(response))
+                })
             })
+            setInterval(add_data, 300000)
         }
+
+        function getData(chart, label, data) {
+            $.ajax('/api/graphs', {
+                type: 'GET'
+            }).then(function(response) {
+                console.log('data', response)
+                for (let i = 0; i < response.length; i++) {
+                    bitcoinChart.data.datasets[0].data.push(response[i].price)
+                    bitcoinChart.data.labels.push(response[i].current_time)
+                    bitcoinChart.update()
+                }
+            })
+            setInterval(getData, 300000)
+        } 
         //changing chart css
         Chart.defaults.global.defaultFontColor = 'white'
         Chart.defaults.global.title.fontSize = 20
@@ -129,16 +150,6 @@
                     {
                     data: [],
                     label: 'bitcoin',
-                    borderColor: gradientStroke,
-                    pointBorderColor: gradientStroke,
-                    pointBackgroundColor: gradientStroke,
-                    pointHoverBackgroundColor: gradientStroke,
-                    pointHoverBorderColor: gradientStroke,
-                    fill: true
-                    },
-                    {
-                    data: [],
-                    label: 'litecoin',
                     borderColor: gradientStrokeTwo,
                     pointBorderColor: gradientStrokeTwo,
                     pointBackgroundColor: gradientStrokeTwo,
@@ -146,112 +157,112 @@
                     pointHoverBorderColor: gradientStrokeTwo,
                     fill: true
                     },
-                    {
-                    data: [],
-                    label: 'Ethereum',
-                    borderColor: 'blue',
-                    fill: true
-                    },
-                    {
-                    data: [],
-                    label: 'user',
-                    borderColor: 'black',
-                    fill: true
-                    }
                 ]
             },
             options: {
                 title: {
                     display: true,
-                    text: 'Crypto Price Chart'
+                    text: 'Bitcoin Price Chart'
                 },
                 scales: {
                     yAxes: [{
                         display: true,
                         ticks: {
                             steps: 10,
-                            stepSize: 1000,
-                            beginAtZero: true,
+                            stepSize: 500,
+                            beginAtZero: false,
                             suggestedMax: 10000,
+                            suggestedMin: 5000
                         }
                     }],
                 }
             }
         })
-        //adding time to the x axis
-        function add_data(chart, label, data) {
-            let today = new Date()
-            let time = today.getHours() + ':' + today.getMinutes() + today.getSeconds();
-            console.log(time)
-            bitcoinChart.data.labels.push(time)
-            bitcoinChart.update()
-        }
         //setting the time between each data point
-        setInterval(getData, 300000)
-        setInterval(add_data, 300000)
         //calling functions when the page starts
-        getData()
         add_data()
-
+        getData()
         //making custom graphs and table graphs from user data//
+        //add new post to store data//
         function setup() {
-            $('#prices').empty()
-            let add = $('#custom').val().trim()
-            let queryURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,litecoin,eos,monero,power-ledger,augur,dogecoin,' + add + '&price_change_percentage=24hr'
+             let queryURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,litecoin&price_change_percentage=24hr'
             $.ajax({
                 url: queryURL,
                 method: 'GET'
             }).then(function(response) {
-                console.log(add)
                 console.log(response)
                 for (let i = 0; i < response.length; i++) {
                     let upperCase = response[i].symbol.toUpperCase()
                     let image = $('<img>').attr('src', response[i].image).addClass('crypto')
+                    let change = response[i].price_change_percentage_24h.toFixed(2);
                     let newRows = $('<tr>').append(
                         $('<td>').append(image),
                         $('<td>').text(upperCase),
                         $('<td>').text('$' + response[i].current_price),
                         $('<td>').text('$' + response[i].total_volume),
-                        $('<td>').text(response[i].price_change_percentage_24h.toFixed(2) + '%')
+                        $('<td>').text(change + '%')
                     )
-                    $('#coin-prices').append(newRows)
-                    $.ajax('/api/charts', {
-                        type: 'POST',
-                        data: newRows
-                    }).then(function() {
-                        console.log('added crypto')
-                        location.reload();
-                    })
+                    $('#coin-prices').append(newRows);
+                }
+                $.ajax({
+                url: '/api/charts',
+                method: 'GET'
+                }).then(function(response) {
+                    for (let i = 0; i < response.length; i++)  {
+                        console.log('the response', response);
+                        let change = parseFloat(response[i].change).toFixed(2);
+                        let image = $('<img>').attr('src', response[i].image).addClass('crypto')
+                        console.log('change', parseFloat(change).toFixed(2));
+                        let newRows = $('<tr>').append(
+                        $('<td>').append(image),
+                        $('<td>').text(response[i].symbol),
+                        $('<td>').text('$' + response[i].currentprice),
+                        $('<td>').text('$' + response[i].volume),
+                        $('<td>').text(change + '%')
+                    )
+                    $('#coin-prices').append(newRows);
                 }
             })
+            }) 
+
         }
 
-        function userGraph() {
+        function userResponse() {
             let add = $('#custom').val().trim()
             let queryURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=' + add + '&price_change_percentage=24hr'
             $.ajax({
                 url: queryURL,
                 method: 'GET'
             }).then(function(response) {
-                console.log(add)
-                let price = response[0].current_price
-                let id = response[0].id
-                bitcoinChart.data.datasets[3].data.push(price)
-                bitcoinChart.data.datasets[3].label = id
-                bitcoinChart.update()
+                console.log('the response', response);
+                let upperCase = response[0].symbol.toUpperCase()
+                let image = $('<img>').attr('src', response[0].image).addClass('crypto')
+                let userData = {
+                    image: response[0].image,
+                    symbol: upperCase,
+                    currentprice: response[0].current_price,
+                    volume: response[0].total_volume,
+                    change: response[0].price_change_percentage_24h
+                }
+                $.ajax('/api/charts', {
+                    type: 'POST',
+                    data: userData
+                }).then(function(res) {
+                    console.log('added crypto', res)
+                    window.location.reload()
+                })
             })
         }
+        //**notes**//
+        //build user custom made graphs//
         //calling setup immediately to build the table//
         setup()
         //on click add the users crypto to table and graph//
         $('#add').on('click', function(event) {
             event.preventDefault()
-            setup()
-            setInterval(setup, 120000)
-            userGraph()
-            setInterval(userGraph, 300000)
+            userResponse()
         })
+    })
+</script>
 
-    </script>
-</body>
-</html>
+        
