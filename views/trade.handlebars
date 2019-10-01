@@ -25,20 +25,16 @@
 <p><span class="label">$</span><span id="price"></span></p>
 <h2>Time</h2>
 <p><span id="time"></span></p>
-<h2>Options</h2>
+
+<div class="options-container">
+  <h2>Options</h2>
 <div>
   <button id="option-put">Down/Put</button>
   <button id="option-call">Up/Call</button>
 </div>
 <h2>Purchases</h2>
-<ul id="purchase-list" class="list-group">
-          {{!-- {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}} --}}
-        </ul>
+<ul id="purchase-list" class="list-group"></ul>
+</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/trade.js"></script>
