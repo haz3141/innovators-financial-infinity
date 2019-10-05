@@ -44,9 +44,9 @@ run server.js
 * [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
    
 
-## Author
+## Authors
 
-* **Haz** - *Project Head* - [haz3141](https://github.com/haz3141)
+* **** - ** - []()
 
 ## Acknowledgments
 
